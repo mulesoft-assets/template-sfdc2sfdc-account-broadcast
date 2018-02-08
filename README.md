@@ -158,8 +158,6 @@ In order to use this Mule Anypoint Template you need to configure properties (Cr
 + watermark.default.expression `YESTERDAY`
 + trigger.policy `push` | `poll`
 
-**Note**: the property `trigger.policy` can assume only one of the values above either *push* or *poll*
-
 **Salesforce Connector configuration for company A**
 
 + sfdc.a.username `bob.dylan@orga`
@@ -222,7 +220,7 @@ The second one we'll call it **scheduler** flow. This one contains the Scheduler
 
 The third one we'll call it **sfdcQuery** flow. This one contains watermarking logic that will be querying Salesforce for updated/created Accounts that meet the defined criteria in the query since the last polling. The last invocation timestamp is stored by using Objectstore Component and updated after each Salesforce query.
 
-The property **trigger.policy** is the one in charge of defining from which endpoint the Template will receive the data. The property can only assume one of two values `push` or `poll` any other value will result in the Template ignoring all messages.
+The property **trigger.policy** is the one in charge of defining from which endpoint the Template will receive the data. The property can only assume one of two values `push` or `poll`. Any other value will result in the Template ignoring all messages.
 
 
 

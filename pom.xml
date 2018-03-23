@@ -45,66 +45,34 @@
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-http-connector</artifactId>
-			<version>${mule.connectors.version}</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
     	<dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-sfdc-connector</artifactId>
-            <version>${sfdc.connector.version}</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     	<dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-objectstore-connector</artifactId>
-            <version>${mule.connectors.version}</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     	<dependency>
             <groupId>com.mulesoft.munit</groupId>
             <artifactId>munit-runner</artifactId>
-            <version>${munit.version}</version>
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
         </dependency>	<dependency>
             <groupId>com.mulesoft.munit</groupId>
             <artifactId>munit-tools</artifactId>
-            <version>${munit.version}</version>
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
         </dependency>
     	<dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-scripting-module</artifactId>
-            <version>${mule.connectors.version}</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     </dependencies>
-
-	<repositories>
-          <repository>
-            <id>anypoint-exchange</id>
-            <name>Anypoint Exchange</name>
-            <url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleSoft Releases Repository</name>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>mulesoft-releases</id>
-            <name>mulesoft release repository</name>
-            <layout>default</layout>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
 </project>

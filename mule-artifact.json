@@ -5,9 +5,10 @@
     "endpoints.xml",
     "errorHandling.xml"
   ],
+  "secureProperties": [],
   "redeploymentEnabled": true,
   "name": "template-sfdc2sfdc-account-broadcast",
-  "minMuleVersion": "4.1.0",
+  "minMuleVersion": "4.1.1",
   "requiredProduct": "MULE_EE",
   "classLoaderModelLoaderDescriptor": {
     "id": "mule",

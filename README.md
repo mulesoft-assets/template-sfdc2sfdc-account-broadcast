@@ -8,22 +8,22 @@ Review the terms of the license before downloading and using this template. You 
 with the Mule Enterprise Edition, CloudHub, or as a trial in Anypoint Studio.
 
 # Use Case
-As a Salesforce admin I want to synchronize accounts between two Salesforce orgs.
+As a Salesforce administrator I want to synchronize accounts between two Salesforce organizations.
 
-This Anypoint Template should serve as a foundation for setting an online sync of accounts from one Salesforce instance to another. Everytime there is new account or a change in an already existing one, the integration will poll for changes in Salesforce source instance and it will be responsible for updating the account on the target org.
+This template serves as a foundation for setting an online sync of accounts from one Salesforce instance to another. Each time there is new account or a change in an existing one, the integration  polls for changes in Salesforce source instance and it's responsible for updating the account on the target org.
 
 Requirements have been set not only to be used as examples, but also to establish a starting point to adapt your integration to your requirements.
 
-As implemented, this Anypoint Template leverages the [Batch Module](http://www.mulesoft.org/documentation/display/current/Batch+Processing).
-The batch job is divided in Process and On Complete stages.
-The integration is triggered by a scheduler defined in the flow that is going to trigger the application, querying newest Salesforce updates/creations matching a filter criteria and executing the batch job.
-During the Process stage, each Salesforce account will be filtered depending on, if it has an existing matching account in the Salesforce Org B.
-The last step of the Process stage will group the accounts and create/update them in Salesforce Org B.
-Finally during the On Complete stage the Anypoint Template will log output statistics data into the console.
+As implemented, this template leverages the Mule batch module.
+The batch job is divided into Process and On Complete stages.
+The integration is triggered by a scheduler defined in the flow that triggers the application, querying newest Salesforce updates or creations matching a filter criteria and executes the batch job.
+During the Process stage, each Salesforce account is filtered depending on if it has an existing matching account in the Salesforce Org B.
+The last step of the Process stage groups the accounts and creates or updates them in Salesforce Org B.
+Finally during the On Complete stage the template logs output statistics data to the console.
 
 # Considerations
 
-To make this Anypoint Template run, there are certain preconditions that must be considered. All of them deal with the preparations in both source and destination systems, that must be made in order for all to run smoothly. **Failling to do so could lead to unexpected behavior of the template.**
+To make this template run, there are certain preconditions that must be considered. All of them deal with the preparations in both source and destination systems, that must be made for all to run smoothly. Failing to do so can lead to unexpected behavior of the template.
 
 
 
@@ -71,9 +71,9 @@ Simple steps to get Salesforce to Salesforce Account Broadcast running.
 See below.
 
 ## Running On Premises
-In this section we detail the way you have to run you Anypoint Template on you computer.
+In this section we detail how to run your template on your computer.
 
-Once your app is all set and started, there is no need to do anything else. The application will poll Account to know if there are any newly created or updated objects and synchronice them.
+Once your app is all set and started, there is no need to do anything else. The application polls an account to know if there are any newly created or updated objects and synchronizes them.
 
 
 ### Where to Download Anypoint Studio and the Mule Runtime
@@ -105,9 +105,9 @@ Complete all properties in one of the property files, for example in mule.prod.p
 
 
 ## Running on CloudHub
-While [creating your application on CloudHub](http://www.mulesoft.org/documentation/display/current/Hello+World+on+CloudHub) (Or you can do it later as a next step), you need to go to Deployment > Advanced to set all environment variables detailed in **Properties to be configured** as well as the **mule.env**. 
+While creating your application in CloudHub (or you can do it later as a next step), you need to go to Deployment > Advanced to set all environment variables detailed in "Properties to Configure" as well as in the **mule.env**. 
 
-Once your app is all set and started, there is no need to do anything else. Every time an account is created or modified, it will be automatically synchronised to Salesforce Org B as long as it has an Email.
+Once your app is all set and started, there is no need to do anything else. Every time an account is created or modified, it's automatically synchronized to Salesforce Org B as long as it has an email.
 
 
 ### Deploying your Anypoint Template on CloudHub
@@ -117,7 +117,7 @@ Studio provides an easy way to deploy your template directly to CloudHub, for th
 ## Properties to Configure
 To use this template, configure properties (credentials, configurations, etc.) in the properties file or in CloudHub from Runtime Manager > Manage Application > Properties. The sections that follow list example values.
 ### Application Configuration
-**Application configuration**
+**Application Configuration**
 
 + http.port `9090` 
 + page.size `100` 
@@ -126,28 +126,28 @@ To use this template, configure properties (credentials, configurations, etc.) i
 + watermark.default.expression `YESTERDAY`
 + trigger.policy `push` | `poll`
 
-**Salesforce Connector configuration for company A**
+**Salesforce Connector Configuration for Company A**
 
 + sfdc.a.username `bob.dylan@orga`
 + sfdc.a.password `DylanPassword543`
 + sfdc.a.securityToken `avsfwCUl7apQs56Xq2AKi3X`
 
-**Salesforce Connector configuration for company B**
+**Salesforce Connector Configuration for Company B**
 
 + sfdc.b.username `joan.baez@orgb`
 + sfdc.b.password `JoanBaez456`
 + sfdc.b.securityToken `ces56arl7apQs56XTddf34X`
 
 # API Calls
-Salesforce imposes limits on the number of API Calls that can be made. Therefore calculating this amount may be an important factor to consider. The Anypoint Template calls to the API can be calculated using the formula:
+Salesforce imposes limits on the number of API calls that can be made. Therefore calculating this amount is important. The template calls to the API can be calculated using the formula:
 
 ***1 + X + X / 200***
 
-Being ***X*** the number of Accounts to be synchronized on each run. 
+***X*** is the number of accounts to be synchronized on each run. 
 
-The division by ***200*** is because, by default, Accounts are gathered in groups of 200 for each Upsert API Call in the commit step. Also consider that this calls are executed repeatedly every polling cycle.	
+Divide by ***200*** because by default, accounts are gathered in groups of 200 for each upsert API call in the commit step. Also consider that calls are executed repeatedly every polling cycle.	
 
-For instance if 10 records are fetched from origin instance, then 12 api calls will be made (1 + 10 + 1).
+For instance if 10 records are fetched from the origin instance, then 12 API calls are made (1 + 10 + 1).
 
 
 # Customize It!
@@ -169,25 +169,23 @@ In the Studio visual editor, the properties are on the *Global Element* tab.
 
 
 ## businessLogic.xml
-Functional aspect of the Anypoint Template is implemented on this XML, directed by one flow that will be responsible for Salesforce creations/updates. The several message processors constitute four high level actions that fully implement the logic of this Anypoint Template:
+The functional aspect of the template is implemented in this XML file, directed by a flow that's responsible for Salesforce creations or updates. The message processors constitute four high level actions that fully implement the logic of this template:
 
-1. During the Input stage the Anypoint Template will go to the Salesforce Org A and query all the existing Accounts that match the filter criteria.
-2. During the Process stage, each Salesforce account will be filtered depending on, if it has an existing matching account in the Salesforce Org B.
-3. The last step of the Process stage will group the accounts and create/update them in Salesforce Org B.
-4. Finally during the On Complete stage the Anypoint Template will log output statistics data into the console.
+1. During the Input stage, the template goes to the Salesforce Org A and queries all the existing accounts that match the filter criteria.
+2. During the Process stage, each Salesforce account is filtered depending on if it has an existing matching account in the Salesforce Org B.
+3. The last step of the Process stage groups the accounts and creates or updates them in Salesforce Org B.
+4. Finally during the On Complete stage, the template logs output statistics data on the console.
 
 
 
 ## endpoints.xml
-This is file is conformed by three Flows.
+This file contains three flows:
 
-The first one we'll call it **push** flow. This one contains an HTTP endpoint that will be listening for notifications from Salesforce . Each of them will be processed and thus update/create Accounts, and then executing the batch job process.
+1. The **push** flow contains an HTTP endpoint that listens for notifications from Salesforce. Each notification is processed and updates or creates accounts, and then executes the batch job process.
+2. The **scheduler** flow contains the Scheduler endpoint that periodically triggers the **sfdcQuery** flow and executes the batch job process.
+3. The **sfdcQuery** flow contains watermarking logic that queries Salesforce for updated or created accounts that meet the defined criteria in the query since the last polling. The last invocation timestamp is stored by using Objectstore Component and updated after each Salesforce query.
 
-The second one we'll call it **scheduler** flow. This one contains the Scheduler endpoint that will periodically trigger **sfdcQuery** flow and then executing the batch job process.
-
-The third one we'll call it **sfdcQuery** flow. This one contains watermarking logic that will be querying Salesforce for updated/created Accounts that meet the defined criteria in the query since the last polling. The last invocation timestamp is stored by using Objectstore Component and updated after each Salesforce query.
-
-The property **trigger.policy** is the one in charge of defining from which endpoint the Template will receive the data. The property can only assume one of two values `push` or `poll`. Any other value will result in the Template ignoring all messages.
+The property **trigger.policy** is the one in charge of defining from which endpoint the template  receives data. The property can only assume one of two values `push` or `poll`. Any other value results in the template ignoring all messages.
 
 
 

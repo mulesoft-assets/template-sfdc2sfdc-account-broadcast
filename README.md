@@ -9,7 +9,7 @@ This template leverages watermarking functionality to ensure that only the most 
 
 **Note:** Any references in the video to DataMapper have been updated in the template with DataWeave transformations.
 
-[//]: # (![]\(https://www.youtube.com/embed/gAMgMc8Aen8?wmode=transparent\)
+[//]: # (![]\(https://www.youtube.com/embed/gAMgMc8Aen8?wmode=transparent\))
 [![YouTube Video](http://img.youtube.com/vi/gAMgMc8Aen8/0.jpg)](https://www.youtube.com/watch?v=gAMgMc8Aen8)
 
 # License Agreement
